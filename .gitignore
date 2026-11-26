@@ -1,0 +1,35 @@
+# Local credentials and configuration
+/config.toml
+/config*.toml*
+!config.example.toml
+.env
+.env.*
+*.pem
+*.key
+credentials.*
+secrets.*
+
+# Local data, caches and execution records
+/data/
+/artifacts/
+/runs/
+/results/
+/.work/
+/.cache/
+
+# Python and editor files
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+.idea/
+.vscode/
+.DS_Store

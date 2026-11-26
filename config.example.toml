@@ -1,0 +1,13 @@
+# Copy this file to config.toml and fill the local provider settings.
+# config.toml is ignored by Git.
+config_version = 1
+
+[providers.yxai]
+api_key = ""
+api_key_env = "YXAI_API_KEY"
+base_url = "https://yxai.chat/v1"
+protocol = "openai_responses"
+
+[models.single_document]
+provider = "yxai"
+name = "gpt-6.1-sol"

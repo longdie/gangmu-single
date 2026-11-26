@@ -1,0 +1,62 @@
+{
+  "schema_version": "gangmu.single-document.policy.v1",
+  "agent_version": "single-document-integrated-v2",
+  "authorization_config": "configs/topology.json",
+  "node_options": {
+    "context_catalog_chars": 5000,
+    "context_query_results": 4,
+    "context_window_chars": 48000,
+    "max_context_requests": 2,
+    "round1_batch_chars": 24000,
+    "round1_max_items": 30,
+    "round2_chunk_chars": 12000
+  },
+  "node_wire_options": {
+    "max_output_tokens": 12000,
+    "max_wire_bytes": 160000,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "response_transport": "sse",
+    "round1_max_items": 6
+  },
+  "stage_model_options": {
+    "nodes": {
+      "reasoning_effort": "high",
+      "max_output_tokens": 12000,
+      "response_transport": "sse",
+      "timeout_seconds": 600
+    },
+    "explicit": {
+      "reasoning_effort": "high",
+      "max_output_tokens": 12000,
+      "response_transport": "sse",
+      "timeout_seconds": 600
+    },
+    "implicit": {
+      "reasoning_effort": "medium",
+      "max_output_tokens": 6000,
+      "response_transport": "sse",
+      "timeout_seconds": 600
+    }
+  },
+  "explicit_options": {
+    "max_wire_bytes": 160000,
+    "batch_max_items": 12,
+    "max_source_followups": 2
+  },
+  "implicit_retrieval": {
+    "version": "saved-union-v1",
+    "bm25_top_k": 6,
+    "bm25_relative_floor": 0.35,
+    "context_weight": 0.25,
+    "previous_k": 3,
+    "following_k": 2,
+    "rule_features": true,
+    "source_proofs": true
+  },
+  "implicit_packets": {
+    "max_pairs": 10,
+    "max_payload_bytes": 45000
+  },
+  "implicit_prompt": "prompts/single_document/implicit_dependencies/decide_v1.md"
+}

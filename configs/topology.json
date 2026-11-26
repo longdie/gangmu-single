@@ -1,0 +1,53 @@
+{
+  "schema_version": "gangmu.e4.topology_campaign.v2",
+  "campaign_id": "e4-topology-session-v2",
+  "ledger_id": "e4-implicit-topology-session-v2",
+  "provider": "yxai",
+  "model": "gpt-6.1-sol",
+  "budget": {
+    "max_counted_starts": 180,
+    "max_observed_tokens": 9755219,
+    "max_concurrency": 3,
+    "max_attempts_per_task": 2,
+    "evaluation_reserved_starts": 40,
+    "evaluation_reserved_tokens": 2000000
+  },
+  "model_options": {
+    "reasoning_effort": "medium",
+    "response_transport": "sse",
+    "timeout_seconds": 600,
+    "max_output_tokens": 6000
+  },
+  "expanded_retrieval": {
+    "bm25_top_k": 64,
+    "previous_k": 12,
+    "following_k": 12,
+    "bm25_relative_floor": 0.0,
+    "context_weight": 0.25,
+    "rule_features": true,
+    "source_proofs": true,
+    "max_pairs_per_node_round": 40
+  },
+  "max_node_expansion_rounds": 1,
+  "max_document_isolation_rounds": 1,
+  "max_reextractions_per_document": 1,
+  "packets": {
+    "max_pairs": 5,
+    "max_payload_bytes": 65000
+  },
+  "review_prompt": "prompts/evaluation/e4_topology_edge_review_v1.md",
+  "repair_prompt": "prompts/single_document/topology/decide_v1.md",
+  "value_prompt": "prompts/evaluation/e4_topology_node_value_v1.md",
+  "pruning_order": [
+    "independent_status",
+    "concrete_use_witness",
+    "scope_compatibility",
+    "stable_relation_id"
+  ],
+  "formal_publication": false,
+  "recall_acceptance": false,
+  "runtime_policy": "gangmu.e4.topology-single-pass.v2",
+  "repair_relation_evaluation": false,
+  "runtime_precision_gate": false,
+  "whole_output_runtime_evaluation": false
+}

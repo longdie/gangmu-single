@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gangmu-single"
+version = "0.1.0"
+description = "Source-preserving single-document mathematical graph extraction"
+requires-python = ">=3.11"
+dependencies = [
+  "pylatexenc==2.10",
+  "pydantic==2.13.4",
+  "jsonschema==4.26.0",
+  "tiktoken==0.13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gangmu", "gangmu.*"]
